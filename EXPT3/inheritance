@@ -1,0 +1,137 @@
+import java.util.Scanner;
+class circle
+{
+    double radius;
+    String color;
+    circle(double r,String c)
+    {
+        radius=r;
+        color=c;
+    }
+    void menu()
+    {
+
+        System.out.println("1.Get Radius");
+        System.out.println("2.Get Color");
+        System.out.println("3.Get Height");
+        System.out.println("4.Get Volume of cylinder");
+        System.out.println("5.Get Circle Area");
+        System.out.println("6.ToString()");
+        System.out.println("7.Set Radius");
+        System.out.println("8.Set Color");
+        System.out.println("9.Set Height");
+        System.out.println("10.Exit the Loop");
+    }
+    String getcolor()
+    {
+        return color;
+    }
+    double getradius()
+    {
+        return radius;
+    }
+    void setradius(double r)
+    {
+        radius=r;
+    }
+    void setcolor(String c)
+    {
+        color=c;
+    }
+    double getarea()
+    {
+        return 3.14*radius*radius;
+    }
+    String tostring()
+    {
+        return "Circle[radius= "+radius+", color="+color+"]";
+    }
+}
+class cylinder extends circle
+{
+    double height=1.0;
+    cylinder(double r,double h,String c)
+    {
+        super(r,c);
+        height=h;
+    }
+    double getheight()
+    {
+        return height;
+    }
+    void setheight(double h)
+    {
+        height=h;
+    }
+    double getvolume()
+    {
+        return 3.14*radius*radius*height;
+    }
+}
+public class NewClass
+{
+    public static void main(String[]args)
+    {
+        Scanner s=new Scanner(System.in);
+        double r,h;
+        String c;
+        System.out.println("Enter Details: ");
+        System.out.println("Enter Radius:");
+        r=s.nextDouble();
+        System.out.println("Enter Height :");
+        h=s.nextDouble();
+        System.out.println("Enter Color: ");
+        c=s.next();
+        int i=0;
+        cylinder obj=new cylinder(r,h,c);
+        while(i!=10)
+        {
+            obj.menu();
+            System.out.println("Enter Option");
+            i=s.nextInt();
+            if(i==1)
+            {
+                System.out.println(obj.getradius());
+            }
+            else if(i==2)
+            {
+                System.out.println(obj.getcolor());
+            }
+            else if(i==3)
+            {
+                System.out.println(obj.getheight());
+            }
+            else if(i==4)
+            {
+                System.out.println(obj.getvolume());
+            }
+            else if(i==5)
+            {
+                System.out.println(obj.getarea());
+            }    
+            else if(i==6)
+            {
+                System.out.println(obj.tostring());
+            }
+            else if(i==7)
+            {
+                r=s.nextDouble();
+                obj.setradius(r);
+            }
+            else if(i==8)
+            {
+                c=s.next();
+                obj.setcolor(c);
+            }
+            else if(i==9)
+            {
+                h=s.nextDouble();
+                obj.setheight(h);
+            }
+            else if(i==10)
+            {
+                break;
+            }
+        }
+    }
+}
